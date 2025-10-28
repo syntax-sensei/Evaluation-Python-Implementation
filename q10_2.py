@@ -5,13 +5,15 @@ lock = threading.Lock()
 
 
 def calculate(st, end):
-    global total
+
+    global tot
+
     s = 0
     for i in range(st, end):
         s += i * i
 
     with lock:
-        total += s
+        tot += s
 
 
 num = 1000000
