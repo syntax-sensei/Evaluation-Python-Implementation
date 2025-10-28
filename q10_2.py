@@ -1,4 +1,5 @@
 import threading
+import time
 
 tot = 0
 lock = threading.Lock()
@@ -15,6 +16,7 @@ def calculate(st, end):
     with lock:
         tot += s
 
+start = time.time()
 
 num = 1000000
 
@@ -31,4 +33,7 @@ for i in range(0, num, steps):
 for th in threads:
     th.join()
 
+end = time.time()
+
 print(tot)
+print("time", end-start)
